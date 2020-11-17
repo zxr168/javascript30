@@ -56,6 +56,26 @@
         <audio data-key="76" src="sounds/tink.wav"></audio>
 
         <script>
+            function playSound(event) {
+                const oAudio = document.querySelector(`audio[data-key="${event.keyCode}"]`) // 获取页面对应按钮 DIV 元素
+                const oDic = document.querySelector(`div[data-key="${event.keyCode}"]`) // 获取页面对应按钮 DIV 元素
+                if(!oAudio) return    // 如果没有获取到相对应的 DIV  那么就结束
+                oDic.classList.add('playing')
+                oAudio.currentTime = 0
+                oAudio.play()
+            }
+
+            function moveClass(event) {
+                if(event.propertyName !== 'transform') return false
+                event.target.classList.remove('playing') // 移除高亮的样式
+            }
+
+            window.addEventListener('keydown', playSound)
+
+            const keys = Array.from(document.querySelectorAll('.key'))
+            keys.forEach(item => {
+                item.addEventListener('transitionend', moveClass)
+            })
         </script>
     </body>
 </html>

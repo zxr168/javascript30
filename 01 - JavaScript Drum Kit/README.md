@@ -1,7 +1,7 @@
 # 01 JavaScript Drum Kit 中文指南
 
-> 作者：©[未枝丫](https://github.com/soyaine)  
-> 简介：[JavaScript30](https://javascript30.com) 是 [Wes Bos](https://github.com/wesbos) 推出的一个 30 天挑战。项目免费提供了 30 个视频教程、30 个挑战的起始文档和 30 个挑战解决方案源代码。目的是帮助人们用纯 JavaScript 来写东西，不借助框架和库，也不使用编译器和引用。现在你看到的是这系列指南的第 1 篇。完整指南在 [GitHub](https://github.com/soyaine/JavaScript30)，喜欢请 Star 哦♪(^∇^*)
+> 作者：©[未枝丫](https://github.com/soyaine)
+> 简介：[JavaScript30](https://javascript30.com) 是 [Wes Bos](https://github.com/wesbos) 推出的一个 30 天挑战。项目免费提供了 30 个视频教程、30 个挑战的起始文档和 30 个挑战解决方案源代码。目的是帮助人们用纯 JavaScript 来写东西，不借助框架和库，也不使用编译器和引用。现在你看到的是这系列指南的第 1 篇。完整指南在 [GitHub](https://github.com/soyaine/JavaScript30)，最下面有个人的总结，喜欢请 Star 哦♪(^∇^*)
 
 ## 实现效果
 
@@ -38,12 +38,12 @@
 2.  \`字符串 ${ 变量、属性名 } \`：模板字面量（Template literals）中用于表示模板字符串的标识。特点是字符串首尾用反引号（\`），内部的模板部分用 ${ } 括起来表示，具体请看[MDN文档]( https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings)。简单例子如下：
 
     ````javascript
-          var a = 1;
-          var b = 2;
-          //不用模板的写法
-          console.log("三是" + (a + b) + "不是" + (2 * a + b)); //"三是3不是4"
-          //使用模板字符串的写法
-          console.log(`三是${a + b}不是${2 * a + b}`); //"三是3不是4"
+        var a = 1;
+        var b = 2;
+        //不用模板的写法
+        console.log("三是" + (a + b) + "不是" + (2 * a + b)); //"三是3不是4"
+        //使用模板字符串的写法
+        console.log(`三是${a + b}不是${2 * a + b}`); //"三是3不是4"
     ````
 
 ### ``forEach`` 与箭头函数
@@ -98,8 +98,14 @@ audio.play();
 
 ````javascript
 funciton remove(event) {
-  if (event.propertyName !== 'border-left-color') return;
-  this.classList.remove('playing');
-  // event.target.classList.remove('playing');
+    if (event.propertyName !== 'border-left-color') return;
+    this.classList.remove('playing');
+    // event.target.classList.remove('playing');
 }
 ````
+
+### 自己的总结
+通过这个例子，学习到的东西
+1.[类数组](https://blog.csdn.net/bingqise5193/article/details/100170587)
+2.[冒泡、捕获](https://blog.csdn.net/caseywei/article/details/86071764)
+3.[全面的DOM事件](https://www.runoob.com/jsref/dom-obj-event.html)
