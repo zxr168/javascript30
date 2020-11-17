@@ -106,6 +106,6 @@ funciton remove(event) {
 
 ### 自己的总结
 通过这个例子，学习到的东西
-1.[类数组](https://blog.csdn.net/bingqise5193/article/details/100170587)
-2.[冒泡、捕获](https://blog.csdn.net/caseywei/article/details/86071764)
-3.[全面的DOM事件](https://www.runoob.com/jsref/dom-obj-event.html)
+1. [类数组](https://blog.csdn.net/bingqise5193/article/details/100170587)
+2. [冒泡、捕获](https://blog.csdn.net/caseywei/article/details/86071764)
+3. [全面的DOM事件](https://www.runoob.com/jsref/dom-obj-event.html)
