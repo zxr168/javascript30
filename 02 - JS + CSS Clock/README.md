@@ -1,18 +1,16 @@
-# 02 纯 JS、CSS 时钟 中文指南
+# 02 纯 JS、CSS 时钟
 
-> 作者：©[未枝丫](https://github.com/soyaine)  
-> 简介：[JavaScript30](https://javascript30.com) 是 [Wes Bos](https://github.com/wesbos) 推出的一个 30 天挑战。项目免费提供了 30 个视频教程、30 个挑战的起始文档和 30 个挑战解决方案源代码。目的是帮助人们用纯 JavaScript 来写东西，不借助框架和库，也不使用编译器和引用。现在你看到的是这系列指南的第 2 篇。完整指南在 [GitHub](https://github.com/soyaine/JavaScript30)，喜欢请 Star 哦♪(^∇^*)
+> [原作者指南链接](https://github.com/soyaine/JavaScript30/tree/master/02%20-%20JS%20%2B%20CSS%20Clock)
 
-> 创建时间：2016-12-21    
-最后更新：2017-01-06
+> 创建时间：2020-11-18
+最后更新：2020-11-18
 
+## 技术简介
 ## 实现效果
 
 ![实现效果 by soyaine](https://cl.ly/0y1C2T1z3p2R/Screen%20recording%202016-12-23%20at%2012.30.25%20PM.gif)
 
 文档中已经给出了 HTML 结构，表盘内有三个 `div` 对应三个指针。只需要添加一些 CSS 效果，然后用 JavaScript 动态更新指针的状态即可。
-
-[看在线效果](http://soyaine.github.io/JavaScript30/02%20-%20JS%20%2B%20CSS%20Clock/index-SOYAINE.html)
 
 ## 关键要点
 
@@ -159,3 +157,10 @@ setInterval(updateDate, 1000);
 ```
 
 问题解决。大功告成！
+
+## 个人总结
+通过这个例子，学习到的东西
+1. 从新复习了CSS3动画
+2. 由于定时器是JS的异步操作，又去全面的学习了异步的一些方法，如
+    1. [如何避免 await/async 地狱](https://blog.catwen.cn/2018/05/10/how-to-escape-async-await-hell/)、[async/await最佳实践](https://cuixote.gitee.io/2018/05/14/async:await%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/)
+    2. [学习Promise基础及手写Promise](https://juejin.im/post/6844903843507994632)
