@@ -5,7 +5,10 @@
         <title>Array Cardio 💪</title>
     </head>
     <body>
-        <p><em>请按 F12 查看 Console 面板</em> 💁</p>
+        <p>
+            <em>请按 F12 查看 Console 面板</em>
+            💁
+        </p>
         <p>若无结果请刷新试试</p>
         <script>
             // Get your shorts on - this is an array workout!
@@ -100,23 +103,28 @@
 
             // Array.prototype.filter()
             // 1. Filter the list of inventors for those who were born in the 1500's  过滤那些出生在1500年代的发明家名单
-            const fileterData = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600))
+            const fileterData = inventors.filter(inventor => inventor.year >= 1500 && inventor.year < 1600)
             console.table(fileterData)
             // Array.prototype.map()
             // 2. Give us an array of the inventors' first and last names   给我们一组发明人的名字和姓氏
-            let peoples = inventors.map(inventor => (
-                {
-                    first_name: inventor.first,
-                    last_name: inventor.last
-                }
-            ))
+            const peoples = inventors.map(inventor => ({
+                first_name: inventor.first,
+                last_name: inventor.last,
+            }))
             console.table(peoples)
 
             // Array.prototype.sort()
             // 3. Sort the inventors by birthdate, oldest to youngest 按出生日期对发明者进行分类，从大到小
+            const birthdayArr = inventors.sort((a, b) => (a.year > b.year ? 1 : -1))
+            console.table(birthdayArr)
 
             // Array.prototype.reduce()
             // 4. How many years did all the inventors live? 所有的发明家都活了多少年?
+            const totalYears = inventors.reduce((total, inventor) => {
+                let years = inventor.passed - inventor.year
+                return total + (inventor.passed - inventor.year)
+            }, 0)
+            console.log('科学家总年龄数：' + totalYears)
 
             // 5. Sort the inventors by years lived
 
