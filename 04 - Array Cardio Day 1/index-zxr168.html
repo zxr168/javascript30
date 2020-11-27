@@ -95,7 +95,7 @@
                 'Billings, Josh',
                 'Biondo, Frank',
                 'Birrell, Augustine',
-                'Black Elk',
+                'Black, Elk',
                 'Blair, Robert',
                 'Blair, Tony',
                 'Blake, William',
@@ -126,17 +126,35 @@
             }, 0)
             console.log('科学家总年龄数：' + totalYears)
 
-            // 5. Sort the inventors by years lived
+            // 5. Sort the inventors by years lived     按寿命对发明者进行分类
+            const yearsSortArr = inventors.sort((a, b) => {
+                ((a.passed - a.year) > (b.passed - b.year) ? 1 : -1)
+            })
+            console.table(yearsSortArr)
 
             // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
             // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
             // 7. sort Exercise
             // Sort the people alphabetically by last name
+            const lastSort = people.sort((lastOne, nextOne) => {
+                const aLast = lastOne.split(', ')[1];
+                const bLast = nextOne.split(', ')[1];
+                 return aLast > bLast ? 1 : -1;
+            });
+            console.table(lastSort);
 
             // 8. Reduce Exercise
             // Sum up the instances of each of these
             const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck']
+            const sumArr = data.reduce((acc, name) => {
+                if(!acc[name]){
+                    acc[name] = 0;
+                }
+                acc[name] ++
+                return acc
+            }, {})
+            console.table(sumArr)
         </script>
     </body>
 </html>
