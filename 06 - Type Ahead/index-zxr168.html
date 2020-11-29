@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Type Ahead 👀</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <form class="search-form">
+            <input type="text" class="search" placeholder="唐诗名称" />
+            <ul class="suggestions">
+                <li>唐诗筛选</li>
+            </ul>
+        </form>
+        <script>
+            const endpoint = 'https://gist.githubusercontent.com/soyaine/81399bb2b24ca1bb5313e1985533c640/raw/bdf7df2cbcf70706c4a5e51a7dfb8c933ed78878/TangPoetry.json'
+            // const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json'
+            
+            const tangPoetryList = []
+            fetch(endpoint)
+                .then(response => response.json())
+                .then(data => {
+                    tangPoetryList.push(...data)
+                })
+            
+            function changeShow (){
+                console.log(this.value)
+            }
+
+            const oInput = document.querySelector('.search')
+            oInput.addEventListener('change', changeShow)
+            oInput.addEventListener('keyup', changeShow)
+        </script>
+    </body>
+</html>
