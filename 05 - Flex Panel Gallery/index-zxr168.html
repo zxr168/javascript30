@@ -77,13 +77,13 @@
             .panel > *:first-child {
                 transform: translateY(-100%);
             }
-            .panel.open-active > *:first-child {
-                transform: translateY(0);
-            }
             .panel > *:last-child {
                 transform: translateY(100%);
             }
-            .panel.open-active > *:last-child {
+            .panel.open > *:first-child {
+                transform: translateY(0);
+            }
+            .panel.open > *:last-child {
                 transform: translateY(0);
             }
 
@@ -99,6 +99,7 @@
 
             .panel.open {
                 font-size: 40px;
+                flex: 5;
             }
 
 
@@ -141,12 +142,8 @@
             function changeState(event) {
                 this.classList.toggle('open');
             }
-            function changeActive(event ){
-
-            }
             aPanel.forEach(item => {
                 item.addEventListener('click', changeState)
-                item.addEventListener('transitionend', changeActive)
             })
         </script>
     </body>
