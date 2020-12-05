@@ -7,9 +7,11 @@
     </head>
     <body>
         <form class="search-form">
-            <input type="text" class="search" placeholder="唐诗名称" />
+            <input type="text" class="search" placeholder="唐诗名称、诗句、作者" />
             <ul class="suggestions">
                 <li>唐诗筛选</li>
+                <li>根据词句、作者、名称筛选</li>
+                <li></li>
             </ul>
         </form>
         <script>
@@ -17,17 +19,52 @@
             // const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json'
             
             const tangPoetryList = []
+
             fetch(endpoint)
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data)
                     tangPoetryList.push(...data)
                 })
             
+            function findData(value, tangPoetryList) {
+                const regex = new RegExp(value, 'gi')
+                return tangPoetryList.filter(poet => {
+                    // 作者是数组，转变成字符串
+                    const author = poet.detail_author.join('')
+
+                    return poet.detail_text.match(regex) || poet.title.match(regex) || author.match(regex)
+                })
+            }
+
             function changeShow (){
-                console.log(this.value)
+                if(this.value !== ''){
+                    // value不为空，进行筛选
+                    const screenData = findData(this.value, tangPoetryList)
+                    const regex = new RegExp(this.value, 'gi')
+                    const htmlData = screenData.map(poet => {
+                        // 替换高亮的标签
+                        const text = poet.detail_text.replace(regex, `<span class="hl">${ this.value }</span>`);
+                        const title = poet.title.replace(regex, `<span class="hl">${ this.value }</span>`)
+
+                        // 构造 HTML 值
+                        return `
+                            <li>
+                                <span class="poet">${ text }</span>
+                                <span class="title">${ title } - ${ poet.detail_author[0] }</span>
+                            </li>
+                        `;
+                    }).join('');
+                    suggestions.innerHTML = htmlData;
+                } else{
+                    // value为空，不进行筛选
+                    suggestions.innerHTML = '<li>输入词句，找一首诗</li><li></li>'
+                }
             }
 
             const oInput = document.querySelector('.search')
+            const suggestions = document.querySelector('.suggestions')
+
             oInput.addEventListener('change', changeShow)
             oInput.addEventListener('keyup', changeShow)
         </script>
